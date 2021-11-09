@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+<ion-list>
+
+<ion-item>
+<ion-label>Correo: </ion-label>
+<ion-input type="email"></ion-input>
+</ion-item>
+
+<ion-item>
+<ion-label>Contraseña: </ion-label>
+<ion-input type="password"></ion-input>
+</ion-item>
+</ion-list>
+<ion-header translucent>
+      <ion-toolbar>
+        <ion-title>Loading</ion-title>
+      </ion-toolbar>
+</ion-header>
+
+<div>
+<ion-button color="success" (click)="presentLoading()" block>Ingresar</ion-button>
+<ion-button color="warning" [routerLink]="['/register']" block>Registrarse</ion-button>
+</div>
+
+</ion-content>
+

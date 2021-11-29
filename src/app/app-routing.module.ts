@@ -23,6 +23,18 @@ const routes: Routes = [
     path: 'setting',
     loadChildren: () => import('./setting/setting.module').then( m => m.SettingPageModule)
   },
+  {
+    path: 'reserva',
+    loadChildren: () => import('./reserva/reserva.module').then( m => m.ReservaPageModule)
+  },
+  {
+    path: 'aforo',
+    loadChildren: () => import('./aforo/aforo.module').then( m => m.AforoPageModule)
+  },
+  {
+    path: 'mod-aforo',
+    loadChildren: () => import('./mod-aforo/mod-aforo.module').then( m => m.ModAforoPageModule)
+  },
 ];
 
 @NgModule({

@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiLogin: 'http://152.173.204.171:3333/login',
+  apiRegister: 'http://152.173.204.171:3333/registro',
+  apiAforo: 'http://152.173.204.171:3333/aforo',
+  apiReserva: 'http://152.173.204.171:3333/reserva',
+  apiModR: 'http://152.173.204.171:3333/modr',
+
 };
 
 /*

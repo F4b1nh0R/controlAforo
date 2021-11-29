@@ -1,36 +1,70 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>register</ion-title>
+  <ion-toolbar align="center">
+    <ion-title>SMCA - Registro</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-<ion-list>
-<ion-item>
-<ion-label>Nombre: </ion-label>
-<ion-input type="text"></ion-input>
-</ion-item>
-<ion-item>
-<ion-label>Apellido: </ion-label>
-<ion-input type="text"></ion-input>
-</ion-item>
-<ion-item>
-<ion-label>Correo institucional: </ion-label>
-<ion-input type="email"></ion-input>
-</ion-item>
+<ion-content [fullscreen]="true">
+<ion-card>
+  <ion-card-header>
+    Registrarse
+  </ion-card-header>
+  <form [formGroup] = "registerForm" >
+    <ion-list>
 
-<ion-item>
-<ion-label>Contraseña: </ion-label>
-<ion-input type="password"></ion-input>
-</ion-item>
+      <ion-item>
+        <ion-label position="floating">Nombre: </ion-label>
+        <ion-input type="text" formControlName="namerg"></ion-input>
+      </ion-item>
 
-<ion-item>
-<ion-label>Reingrese contraseña: </ion-label>
-<ion-input type="password"></ion-input>
-</ion-item>
-</ion-list>
+      <ion-item>
+        <ion-label position="floating">Apellido Paterno: </ion-label>
+        <ion-input type="text" formControlName="aperg"></ion-input>
+      </ion-item>
 
-<div>
-<ion-button color="warning" [routerLink]="['/login']" block>Registrarse</ion-button>
-</div>
+      <ion-item>
+        <ion-label position="floating">Apellido Materno: </ion-label>
+        <ion-input type="text" formControlName="aperg2"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Rut: </ion-label>
+        <ion-input type="text" formControlName="rutrg"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Correo Institucional: </ion-label>
+        <ion-input type="email" formControlName="emailrg"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña: </ion-label>
+        <ion-input type="password" formControlName="passrg"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Reingrese Contraseña: </ion-label>
+        <ion-input type="password" formControlName="passrg2"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Palabra Secreta: </ion-label>
+        <ion-input type="secret" formControlName="secretrg"></ion-input>
+      </ion-item>
+
+    </ion-list>
+  </form>
+  <div align="center">
+    <ion-button color="warning" (click)="registrar()">Registrarse</ion-button>
+  </div>
+</ion-card>
+
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/login']" >Volver</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { RegisterPage } from '../register/register.page';
 import { LoadingController } from '@ionic/angular';
@@ -19,7 +19,8 @@ export class LoginPage implements OnInit {
   registerPage: RegisterPage;
 
 
-  constructor(public loadingController: LoadingController, private router: Router, public fb: FormBuilder, private http: HttpClient, ) {
+  constructor(public alertController: AlertController,
+    public loadingController: LoadingController, private router: Router, public fb: FormBuilder, private http: HttpClient, ) {
 
     this.loginForm = this.fb.group({
       correolg: new FormControl('',Validators.required),
@@ -47,10 +48,45 @@ export class LoginPage implements OnInit {
   }
 
   async ingresar(){
-    const res = await this.http.get(environment.apiAforo).subscribe(data => console.log(data));
-    console.log('ingresó');
+
+    console.log('función ingresar');
+    const f = this.loginForm.value;
+
+    if(this.loginForm.invalid){
+      const alert = await this.alertController.create({
+        header:'Error',
+        message: 'Debes rellenar todos los campos',
+        buttons: ['Aceptar']
+      });
+
+      await alert.present();
+      return;
+    }
+    const usuario = {
+      maillg: f.correolg,
+      passlg: f.passlg,
+    };
+    const loading = await this.loadingController.create({
+      message: 'Iniciando Sesión....'
+    });
+
+    await loading.present();
+
+    this.http.post(environment.apiLogin, usuario).subscribe(async res =>{
+      await loading.dismiss();
+      console.log(res);
+    }, async err => {
+      await loading.dismiss();
+      const alert = await this.alertController.create({
+        header: 'Error',
+        message: err.message,
+        buttons: ['ok']
+      });
+
+      await alert.present();
+    });
+
+
   }
-
-
 
 }

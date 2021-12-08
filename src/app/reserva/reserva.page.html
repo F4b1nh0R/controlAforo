@@ -6,43 +6,46 @@
 
 <ion-content>
 
-<form id="busca_r">
-<!-- <div>
-<a>Bloque horario: </a> <select class="bloqueH" name="bloqueH" id="bloqueH"required>
-        <option value="1">1 - 2</option>
-        <option value="2">3 - 4</option>
-        <option value="3">5 - 6</option>
-        <option value="4">7 - 8</option>
-        <option value="5">9 - 10</option>
-        <option value="6">11 - 12</option>
-        <option value="7">13 - 14</option>
-</select>
-</div>-->
-<br><br>
-<!-- <u>
-<a>Fecha: </a>
-<input type="date" id="fecha" name="reserva"
-       value="date"
-       min="2021-11-01" max="2025-12-31" required></li>
+<form [formGroup]="reserveForm">
+    <!-- <div>
+    <a>Bloque horario: </a> <select class="bloqueH" name="bloqueH" id="bloqueH"required>
+            <option value="1">1 - 2</option>
+            <option value="2">3 - 4</option>
+            <option value="3">5 - 6</option>
+            <option value="4">7 - 8</option>
+            <option value="5">9 - 10</option>
+            <option value="6">11 - 12</option>
+            <option value="7">13 - 14</option>
+    </select>
+    </div>-->
+    <br><br>
+    <!-- <u>
+    <a>Fecha: </a>
+    <input type="date" id="fecha" name="reserva"
+          value="date"
+          min="2021-11-01" max="2025-12-31" required></li>
 
-<li><ion-button color="success" (click)="presentLoading()" block>Buscar</ion-button></li>
-</u> -->
-<ion-item>
-          <ion-label>Seleccione fecha:  </ion-label>
-          <ion-datetime min="2019-01-01" max="2025-12-30"display-timezone="utc" ></ion-datetime>
-        </ion-item>
-<ion-item>
-  <ion-label>Seleccione bloque horario: </ion-label>
-    <ion-select interface="popover">
-      <ion-select-option value="1">1 - 2 ~ 8:00 - 9:30</ion-select-option>
-      <ion-select-option value="2">3 - 4 ~ 9:40 - 11:10</ion-select-option>
-      <ion-select-option value="3">5 - 6 ~ 11:20 - 12:50</ion-select-option>
-      <ion-select-option value="4">7 - 8 ~ 14:45 - 16:15</ion-select-option>
-      <ion-select-option value="5">9 - 10 ~ 16:20 - 17:50</ion-select-option>
-      <ion-select-option value="6">11 - 12 ~ 17:55 - 19:25</ion-select-option>
-      <ion-select-option value="7">13 - 14 ~ 19:30 - 20:50</ion-select-option>
-    </ion-select>
-</ion-item>
+    <li><ion-button color="success" (click)="presentLoading()" block>Buscar</ion-button></li>
+    </u> -->
+    <ion-item>
+              <ion-label>Seleccione fecha:  </ion-label>
+              <ion-datetime  min="2019-01-01" formControlName="fechars" max="2025-12-30"></ion-datetime>
+            </ion-item>
+    <ion-item>
+      <ion-label>Seleccione bloque horario: </ion-label>
+        <ion-select interface="popover" formControlName="bloquehrs">
+          <ion-select-option value="1">1 - 2 ~ 8:00 - 9:30</ion-select-option>
+          <ion-select-option value="2">3 - 4 ~ 9:40 - 11:10</ion-select-option>
+          <ion-select-option value="3">5 - 6 ~ 11:20 - 12:50</ion-select-option>
+          <ion-select-option value="4">7 - 8 ~ 14:45 - 16:15</ion-select-option>
+          <ion-select-option value="5">9 - 10 ~ 16:20 - 17:50</ion-select-option>
+          <ion-select-option value="6">11 - 12 ~ 17:55 - 19:25</ion-select-option>
+          <ion-select-option value="7">13 - 14 ~ 19:30 - 20:50</ion-select-option>
+        </ion-select>
+    </ion-item>
 </form>
+<div align="center">
+  <ion-button color="warning" (click)="reservar()">Reservar</ion-button>
+</div>
 
 </ion-content>

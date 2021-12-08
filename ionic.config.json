@@ -1,5 +1,7 @@
 {
   "name": "proyectoionic",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

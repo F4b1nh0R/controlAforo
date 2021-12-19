@@ -1,13 +1,25 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>aforo</ion-title>
+  <ion-toolbar align="center">
+    <ion-title>SMCA - Aforos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-<ion-card>asdad</ion-card>
-<ion-card>asdad</ion-card>
-<ion-card>asdad</ion-card>
-<ion-card>asdad</ion-card>
+<ion-content fullscreen="true" >
+<ion-card *ngFor='let item of items'>
 
+    <ion-card-header>
+      <ion-card-title>{{item.id}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content >
+      <ion-progress-bar color='warning' value={{item.cant*0.1}}></ion-progress-bar>
+    <p style="float:right; color:white ">{{item.cant}} de {{item.aforo}}</p>
+  </ion-card-content>
+</ion-card>
 </ion-content>
+<ion-footer>
+  <ion-toolbar color="warning">
+      <ion-buttons slot="start">
+      <ion-button (click)="terminar()" [routerLink]="['/home']" >Volver</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

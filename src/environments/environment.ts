@@ -4,11 +4,12 @@
 
 export const environment = {
   production: false,
-  apiLogin: 'https://mycorsproxy-fabian2.herokuapp.com/http://152.173.197.240:3333/login',
-  apiRegister: 'https://mycorsproxy-fabian2.herokuapp.com/http://152.173.197.240:3333/registro',
-  apiAforo: 'https://mycorsproxy-fabian2.herokuapp.com/http://152.173.197.240:3333/aforo',
-  apiReserva: 'https://mycorsproxy-fabian2.herokuapp.com/http://152.173.197.240:3333/reserva',
-  apiModR: 'https://mycorsproxy-fabian2.herokuapp.com/http://152.173.197.240:3333/modr',
+  apiLogin: 'https://mycorsproxy-fabian2.herokuapp.com/http://201.246.95.250:3333/login',
+  apiRegister: 'https://mycorsproxy-fabian2.herokuapp.com/http://201.246.95.250:3333/registro',
+  apiAforo: 'https://mycorsproxy-fabian2.herokuapp.com/http://201.246.95.250:3333/aforo',
+  apiReserva: 'https://mycorsproxy-fabian2.herokuapp.com/http://201.246.95.250:3333/reserva',
+  apiModR: 'https://mycorsproxy-fabian2.herokuapp.com/http://201.246.95.250:3333/modr',
+  apiModA: 'https://mycorsproxy-fabian2.herokuapp.com/http://201.246.95.250:3333/moda',
 
 };
 

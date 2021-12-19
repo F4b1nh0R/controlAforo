@@ -18,10 +18,24 @@
   </div>
   <br>
   <div align ="center">
-  <ion-button color="success" [routerLink]="['/login']" block>Ingresar</ion-button>
-    <ion-button color="warning" [routerLink]="['/register']" block>Registrarse</ion-button>
+
+
+
+    <ion-button color="success" [routerLink]="['/login']" block>Ingresar
+
+      <ion-icon name="arrow-forward-outline"></ion-icon>
+    </ion-button>
   </div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/register']" >Registrase</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
  <!--<ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Blank</ion-title>

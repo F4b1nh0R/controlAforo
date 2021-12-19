@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {Validators, FormControl, FormBuilder, FormGroup} from '@angular/forms';
 import { environment } from 'src/environments/environment';
+import {Storage} from '@ionic/storage';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -20,7 +22,12 @@ export class LoginPage implements OnInit {
 
 
   constructor(public alertController: AlertController,
-    public loadingController: LoadingController, private router: Router, public fb: FormBuilder, private http: HttpClient, ) {
+    // eslint-disable-next-line max-len
+    public loadingController: LoadingController,
+    private router: Router,
+    public fb: FormBuilder,
+    private http: HttpClient,
+    private guardar: Storage) {
 
     this.loginForm = this.fb.group({
       correolg: new FormControl('',Validators.required),
@@ -74,7 +81,10 @@ export class LoginPage implements OnInit {
 
     this.http.post(environment.apiLogin, usuario).subscribe(async res =>{
       await loading.dismiss();
-      console.log(res);
+      const hola = JSON.stringify(res);
+      console.log('version string:'+hola);
+      console.log('version string:');
+      //this.guardar.set('Token',);
     }, async err => {
       await loading.dismiss();
       const alert = await this.alertController.create({

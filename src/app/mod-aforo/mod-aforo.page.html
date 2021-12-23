@@ -1,9 +1,25 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>mod_aforo</ion-title>
+    <ion-title>Aforo {{nombreLab}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+   <ion-card align="center">¿Desea modoficar el aforo?</ion-card>
+
+   <form [formGroup] = "modAforoForm">
+      <ion-item>
+        <ion-label>Aforo máximo actual: {{aforoActual}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label >Nuevo aforo: </ion-label>
+        <ion-input type="text" formControlName="newAforo"></ion-input>
+      </ion-item>
+   </form>
+
+   <ion-button align="center" color="warning" fill="outline" extend="full" (click)="modificaAforo(nombreLab)">
+    Cambiar
+  </ion-button>
 
 </ion-content>

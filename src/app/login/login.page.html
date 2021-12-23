@@ -1,15 +1,14 @@
-<ion-header>
-  <ion-toolbar align="center">
-    <ion-title>SMCA - Log In</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-
 <ion-content [fullscreen]="true">
+
+  <div align="center" ><h1>Sistema de monitoreo y control de aforo</h1>
+    <img src="https://dici.uta.cl/wp-content/uploads/2019/11/logo-ing2.png"
+      width="200"
+       height="90"/>
+
+       <h2>Ingreso de Usuario</h2>
+  </div>
 <ion-card>
-  <ion-card-header>
-    Ingreso
-  </ion-card-header>
+
 <form [formGroup] = "loginForm" >
   <ion-list>
 
@@ -24,13 +23,13 @@
     </ion-item>
   </ion-list>
 </form>
+</ion-card>
+
 <div align="center">
   <!--<ion-button color="success" (click)="presentLoading()">Ingresar</ion-button>-->
-  <ion-button color="success" (click)="ingresar()">Ingresar</ion-button>
+  <ion-button color="warning" fill="outline" extend="full"(click)="ingresar()">Ingresar</ion-button>
 
   </div>
-
-</ion-card>
 <!--<ion-header translucent>
       <ion-toolbar>
         <ion-title>Loading</ion-title>

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Reservas encontradas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button color="warning" fill="outline" extend="full" (click)="volverModReserva()">
+    Regresar
+  </ion-button>
+  <br>
+  <ion-card *ngFor='let item of items' (click)='presentActionSheet(item.idReserva)'>
+
+    <ion-card-header>
+      <ion-card-title>{{item.nombreLab}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.fecha.split('T')[0] | date: 'dd/MM/yyyy'}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    <p style="float:left; color:white ">Correo: {{item.mail}}</p>
+    <p style="float:right; color:white ">Bloque: {{item.idBloque}}</p>
+  </ion-card-content>
+</ion-card>
+</ion-content>

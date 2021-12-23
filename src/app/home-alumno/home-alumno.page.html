@@ -1,0 +1,49 @@
+<ion-content [fullscreen]="true">
+  <div align="center" ><h1>Sistema para el monitoreo y control de aforo DICI</h1>
+    <img src="https://dici.uta.cl/wp-content/uploads/2019/11/logo-ing2.png"
+      width="200"
+       height="90"/>
+  </div>
+  <ion-card align='center'>
+    <h2 id='usuario'></h2>
+  </ion-card>
+  <ion-card>
+     <ion-card-content *ngFor='let item of items'>
+      <ion-card-header>
+      <ion-card-subtitle id='info1'>{{item.informacion1}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-header>
+      <ion-card-subtitle id='info2'>{{item.informacion2}}</ion-card-subtitle>
+      </ion-card-header>
+    <ion-card-header>
+      <ion-card-subtitle id='info3'>{{item.informacion3}}</ion-card-subtitle>
+    </ion-card-header>
+  <ion-card-header>
+
+      <ion-card-subtitle (click)="abrir('https://www.uta.cl/wp-content/uploads/2020/07/AportesUTAv1.pdf')" color="primary"> <b>Aportes de la UTA en pandemia</b>
+        <ion-icon name="attach-outline" item-right></ion-icon>
+      </ion-card-subtitle>
+
+    </ion-card-header>
+  <ion-card-header>
+      <ion-card-subtitle (click)="abrir('https://www.uta.cl/wp-content/uploads/2021/08/Plan-de-Retorno.pdf')" color="primary"> <b>Plan de retorno a la presencialidad - 2021</b>
+        <ion-icon name="attach-outline" item-right></ion-icon>
+      </ion-card-subtitle>
+    </ion-card-header>
+    </ion-card-content>
+    </ion-card>
+
+    <div align ="center">
+
+    <ion-button color="warning" fill="outline" extend="block" [routerLink]="['/reserva']" >Realizar reserva
+
+    </ion-button>
+    <br>
+    <br>
+
+    <ion-button (click)="cerrarSesion()" color="danger" [routerLink]="['/home']" fill="outline" extend="block">
+      <ion-icon name="arrow-back-outline"></ion-icon> Cerrar Sesión
+    </ion-button>
+  </div>
+</ion-content>
+

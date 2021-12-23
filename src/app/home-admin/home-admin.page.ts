@@ -1,30 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { AlertController, ModalController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 
+//const mensaje = document.getElementById('usuario');
+
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-home-admin',
+  templateUrl: './home-admin.page.html',
+  styleUrls: ['./home-admin.page.scss'],
 })
-export class HomePage {
+export class HomeAdminPage implements OnInit {
+
+  nombre = localStorage.getItem('nombre');
+  apellido = localStorage.getItem('apellido');
+
   public items: any;
-  constructor(private modalCtrl: ModalController, private http: HttpClient, public alertController: AlertController, public loadingController: LoadingController
-  ) {}
+  constructor(private modalCtrl: ModalController, private http: HttpClient, public alertController: AlertController, public loadingController: LoadingController) { }
 
   ngOnInit() {
+    document.getElementById("admin").innerHTML = "Administrador: "+this.nombre+" "+this.apellido;
     this.informacion();
-    /*if(localStorage.getItem('informacion1') === null){
-      this.informacion();
-    }
-    else{
-      document.getElementById("info1").innerHTML = localStorage.getItem('informacion1');
-      document.getElementById("info2").innerHTML = localStorage.getItem('informacion2');
-      document.getElementById("info3").innerHTML = localStorage.getItem('informacion3');
 
-    }*/
+
   }
 
   abrir(url:string){
@@ -59,4 +58,10 @@ export class HomePage {
     });
   }
 
+  cerrarSesion(){
+    localStorage.clear();
+    localStorage.clear();
+    localStorage.clear();
+    localStorage.clear();
+  }
 }

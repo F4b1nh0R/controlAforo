@@ -7,7 +7,8 @@ import { HttpClient } from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {Validators, FormControl, FormBuilder, FormGroup} from '@angular/forms';
 import { environment } from 'src/environments/environment';
-import {Storage} from '@ionic/storage';
+import { HomeAlumnoPage } from '../home-alumno/home-alumno.page';
+import { HomeAdminPage } from '../home-admin/home-admin.page';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,8 @@ export class LoginPage implements OnInit {
 
   loginForm: FormGroup;
   registerPage: RegisterPage;
+  homeAlumnoPage: HomeAlumnoPage;
+  homeAdminPage: HomeAdminPage;
 
 
   constructor(public alertController: AlertController,
@@ -26,8 +29,7 @@ export class LoginPage implements OnInit {
     public loadingController: LoadingController,
     private router: Router,
     public fb: FormBuilder,
-    private http: HttpClient,
-    private guardar: Storage) {
+    private http: HttpClient) {
 
     this.loginForm = this.fb.group({
       correolg: new FormControl('',Validators.required),
@@ -36,7 +38,9 @@ export class LoginPage implements OnInit {
 
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 
   async presentLoading() {
     const loading = await this.loadingController.create({
@@ -74,22 +78,31 @@ export class LoginPage implements OnInit {
       passlg: f.passlg,
     };
     const loading = await this.loadingController.create({
-      message: 'Iniciando Sesión....'
+      message: 'Validando....'
     });
 
     await loading.present();
 
-    this.http.post(environment.apiLogin, usuario).subscribe(async res =>{
+    this.http.post(environment.apiLogin, usuario).subscribe(async (res:any) =>{
+
       await loading.dismiss();
-      const hola = JSON.stringify(res);
-      console.log('version string:'+hola);
-      console.log('version string:');
-      //this.guardar.set('Token',);
+      localStorage.setItem('token',res.token);
+      console.log('token guardado: '+res.token)
+      console.log('rango: ',res.rango);
+      localStorage.setItem('nombre',res.nombre1);
+      localStorage.setItem('apellido',res.apellido1);
+      if(res.rango === 1){
+        this.router.navigate(['/home-admin']);
+      }
+      else if(res.rango === 0){
+        this.router.navigate(['/home-alumno']);
+      } //flag
+
     }, async err => {
       await loading.dismiss();
       const alert = await this.alertController.create({
         header: 'Error',
-        message: err.message,
+        message: 'Credenciales inválidas',
         buttons: ['ok']
       });
 

@@ -1,0 +1,52 @@
+<ion-content><form [formGroup]="filterForm">
+
+  <div align="center" ><h1>Sistema de monitoreo y control de aforo</h1>
+    <img src="https://dici.uta.cl/wp-content/uploads/2019/11/logo-ing2.png"
+      width="200"
+       height="90"/>
+
+       <h2>Gestión de Reservas de Alumnos</h2>
+  </div>
+<br>
+<h4 align="center ">Filtrado de Busqueda</h4>
+<ion-item>
+  <ion-label>Seleccione laboratorio:  </ion-label>
+  <ion-select interface="popover" formControlName="laboratoriomod">
+    <ion-select-option value="1">Licancabur, Piso 1</ion-select-option>
+    <ion-select-option value="2">Socompa, Piso 1</ion-select-option>
+    <ion-select-option value="3">Azufre, Piso 2</ion-select-option>
+    <ion-select-option value="4">Guallatire, Piso 2</ion-select-option>
+    <ion-select-option value="5">Parinacota, Piso 3</ion-select-option>
+    <ion-select-option value="6">Pomerape, Piso 3</ion-select-option>
+    <ion-select-option value="7">Auditorio, Piso -1</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-item>
+  <ion-label>Seleccione fecha:  </ion-label>
+  <ion-datetime  min="2019-01-01" formControlName="fechamod" max="2025-12-30"></ion-datetime>
+</ion-item>
+
+<ion-item>
+  <ion-label>Seleccione bloque horario: </ion-label>
+    <ion-select interface="popover" formControlName="bloquemod">
+      <ion-select-option value="1">1 - 2 ~ 8:00 - 9:30</ion-select-option>
+      <ion-select-option value="2">3 - 4 ~ 9:40 - 11:10</ion-select-option>
+      <ion-select-option value="3">5 - 6 ~ 11:20 - 12:50</ion-select-option>
+      <ion-select-option value="4">7 - 8 ~ 14:45 - 16:15</ion-select-option>
+      <ion-select-option value="5">9 - 10 ~ 16:20 - 17:50</ion-select-option>
+      <ion-select-option value="6">11 - 12 ~ 17:55 - 19:25</ion-select-option>
+      <ion-select-option value="7">13 - 14 ~ 19:30 - 20:50</ion-select-option>
+    </ion-select>
+</ion-item>
+</form>
+
+<section align="center">
+  <ion-button color="warning" fill="outline" extend="block" (click)="consultaModal()">Consultar</ion-button>
+  </section>
+
+</ion-content>
+<ion-toolbar color="warning">
+  <ion-buttons slot="start">
+  <ion-button [routerLink]="['/home-admin']" >Volver</ion-button>
+</ion-buttons>
+</ion-toolbar>

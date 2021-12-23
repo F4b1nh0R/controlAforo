@@ -3,13 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+
   production: false,
-  apiLogin: 'https://mycorsproxy-fabian2.herokuapp.com/http://201.246.95.250:3333/login',
-  apiRegister: 'https://mycorsproxy-fabian2.herokuapp.com/http://201.246.95.250:3333/registro',
-  apiAforo: 'https://mycorsproxy-fabian2.herokuapp.com/http://201.246.95.250:3333/aforo',
-  apiReserva: 'https://mycorsproxy-fabian2.herokuapp.com/http://201.246.95.250:3333/reserva',
-  apiModR: 'https://mycorsproxy-fabian2.herokuapp.com/http://201.246.95.250:3333/modr',
-  apiModA: 'https://mycorsproxy-fabian2.herokuapp.com/http://201.246.95.250:3333/moda',
+  apiLogin: 'https://mycorsproxy-fabian2.herokuapp.com/http://152.173.152.107:3333/login',
+  apiRegister: 'https://mycorsproxy-fabian2.herokuapp.com/http://152.173.152.107:3333/registro',
+  apiAforo: 'https://mycorsproxy-fabian2.herokuapp.com/http://152.173.152.107:3333/aforo',
+  apiReserva: 'https://mycorsproxy-fabian2.herokuapp.com/http://152.173.152.107:3333/reserva',
+  apiMisReservas: 'https://mycorsproxy-fabian2.herokuapp.com/http://152.173.152.107:3333/misreservas',
+  apiHistorialReservas: 'https://mycorsproxy-fabian2.herokuapp.com/http://152.173.152.107:3333/historialreservas',
+  apiModR: 'https://mycorsproxy-fabian2.herokuapp.com/http://152.173.152.107:3333/modr',
+  apiModA: 'https://mycorsproxy-fabian2.herokuapp.com/http://152.173.152.107:3333/moda',
+  apiConsulta: 'https://mycorsproxy-fabian2.herokuapp.com/http://152.173.152.107:3333/consulta',
+  apiEliminaR: 'https://mycorsproxy-fabian2.herokuapp.com/http://152.173.152.107:3333/eliminareserva',
 
 };
 

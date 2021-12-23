@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content fullscreen="true" >
-<ion-card *ngFor='let item of items'>
+<ion-card *ngFor='let item of items'  (click)='muestraPopover(item.id, item.aforo)'>
 
     <ion-card-header>
       <ion-card-title>{{item.id}}</ion-card-title>
@@ -19,7 +19,7 @@
 <ion-footer>
   <ion-toolbar color="warning">
       <ion-buttons slot="start">
-      <ion-button (click)="terminar()" [routerLink]="['/home']" >Volver</ion-button>
+      <ion-button (click)="terminar()" [routerLink]="['/home-admin']" >Volver</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-footer>

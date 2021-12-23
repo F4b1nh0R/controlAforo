@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mis Historial de Reservas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button align="center"color="warning" fill="outline" extend="full" (click)="volverReservas()">
+    Regresar a Reservas
+  </ion-button>
+  <br>
+  <ion-card *ngFor='let item of items'>
+
+    <ion-card-header>
+      <ion-card-title>{{item.fecha.split('T')[0] | date: 'dd/MM/yyyy'}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content >
+    <p style="float:left; color:white ">{{item.nombreLab}}</p>
+    <p style="float:right; color:white ">{{item.bloqueH}}</p>
+  </ion-card-content>
+</ion-card>
+</ion-content>

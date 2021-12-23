@@ -1,14 +1,15 @@
 import { HttpClient } from '@angular/common/http';
-import { AlertController } from '@ionic/angular';
+import { AlertController, PopoverController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import { Validators, FormControl, FormBuilder,FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { timeout } from 'rxjs/operators';
 import { timeEnd } from 'console';
+import { ModAforoPage } from '../mod-aforo/mod-aforo.page';
+
 
 @Component({
   selector: 'app-aforo',
@@ -19,18 +20,23 @@ export class AforoPage implements OnInit {
 
 
   public items: any;
+  public nameLab: any;
+  public afLab: any;
   public detener: boolean;
-  constructor(private http: HttpClient, public navCtrl: NavController,
+  constructor(public popoverController: PopoverController, private http: HttpClient, public navCtrl: NavController,
     public alertController: AlertController, public loadingController: LoadingController) {
 
-      this.getAforo();
+
      }
 
   ngOnInit() {
+
+    this.getAforo();
   }
 
-  getAforo(){
+  async getAforo(){
       // eslint-disable-next-line prefer-const
+
       let intervalo = setInterval(() => {
       const data: Observable<any> = this.http.get(environment.apiAforo);
       data.subscribe(result => {
@@ -55,6 +61,24 @@ export class AforoPage implements OnInit {
   terminar(){
     console.log('paaraaaaa');
     this.detener = true;
+  }
+
+
+
+  async muestraPopover(nombreLab, aforoActual){
+    const popover = await this.popoverController.create({
+      component:ModAforoPage,
+      cssClass: 'my-custom-class',
+      translucent: true,
+      componentProps:{
+        nombreLab: nombreLab,
+        aforoActual: aforoActual
+
+      }
+
+    });
+    return await popover.present();
+
   }
 
 

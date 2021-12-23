@@ -35,6 +35,30 @@ const routes: Routes = [
     path: 'mod-aforo',
     loadChildren: () => import('./mod-aforo/mod-aforo.module').then( m => m.ModAforoPageModule)
   },
+  {
+    path: 'mis-reservas',
+    loadChildren: () => import('./mis-reservas/mis-reservas.module').then( m => m.MisReservasPageModule)
+  },
+  {
+    path: 'historial-reservas',
+    loadChildren: () => import('./historial-reservas/historial-reservas.module').then( m => m.HistorialReservasPageModule)
+  },
+  {
+    path: 'home-alumno',
+    loadChildren: () => import('./home-alumno/home-alumno.module').then( m => m.HomeAlumnoPageModule)
+  },
+  {
+    path: 'home-admin',
+    loadChildren: () => import('./home-admin/home-admin.module').then( m => m.HomeAdminPageModule)
+  },
+  {
+    path: 'mod-reserva',
+    loadChildren: () => import('./mod-reserva/mod-reserva.module').then( m => m.ModReservaPageModule)
+  },
+  {
+    path: 'gestiona-reserva',
+    loadChildren: () => import('./gestiona-reserva/gestiona-reserva.module').then( m => m.GestionaReservaPageModule)
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mis Reservas Pendientes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button color="warning" fill="outline" extend="full" (click)="volverReservas()">
+    Regresar
+  </ion-button>
+  <br>
+  <ion-card *ngFor='let item of items' (click)='popupAcciones(item.idReserva, item.nombreLab, item.fecha)'>
+
+    <ion-card-header>
+      <ion-card-title>{{item.fecha.split('T')[0] | date: 'dd/MM/yyyy'}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content >
+    <p style="float:left; color:white ">{{item.nombreLab}}</p>
+    <p style="float:right; color:white ">{{item.bloqueH}}</p>
+  </ion-card-content>
+</ion-card>
+</ion-content>

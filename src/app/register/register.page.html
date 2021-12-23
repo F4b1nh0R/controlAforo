@@ -1,14 +1,13 @@
-<ion-header>
-  <ion-toolbar align="center">
-    <ion-title>SMCA - Registro</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
+
+  <div align="center" ><h1>Sistema de monitoreo y control de aforo</h1>
+    <img src="https://dici.uta.cl/wp-content/uploads/2019/11/logo-ing2.png"
+      width="200"
+       height="90"/>
+
+       <h2>Registro de Usuario</h2>
+  </div>
 <ion-card>
-  <ion-card-header>
-    Registrarse
-  </ion-card-header>
   <form [formGroup] = "registerForm" >
     <ion-list>
 
@@ -47,24 +46,20 @@
         <ion-input type="password" formControlName="passrg2"></ion-input>
       </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Palabra Secreta: </ion-label>
-        <ion-input type="secret" formControlName="secretrg"></ion-input>
-      </ion-item>
-
     </ion-list>
   </form>
-  <div align="center">
-    <ion-button color="warning" (click)="registrar()">Registrarse</ion-button>
-  </div>
 </ion-card>
+
+<div align="center">
+  <ion-button color="warning" fill="outline" extend="full" (click)="registrar()">Registrarse</ion-button>
+</div>
 
 </ion-content>
 
 <ion-footer>
   <ion-toolbar color="warning">
     <ion-buttons slot="start">
-      <ion-button [routerLink]="['/login']" >Volver</ion-button>
+      <ion-button (click)='volver()' >Volver</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-footer>
